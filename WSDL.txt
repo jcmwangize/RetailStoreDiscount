@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/">
+
+
+-<wsdl:types>
+
+
+-<s:schema targetNamespace="http://tempuri.org/" elementFormDefault="qualified">
+
+
+-<s:element name="FindNetPayableAmount">
+
+
+-<s:complexType>
+
+
+-<s:sequence>
+
+<s:element name="billAmount" type="s:double" maxOccurs="1" minOccurs="1"/>
+
+<s:element name="userClassification" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+<s:element name="customerYears" type="s:int" maxOccurs="1" minOccurs="1"/>
+
+<s:element name="itemType" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:element>
+
+
+-<s:element name="FindNetPayableAmountResponse">
+
+
+-<s:complexType>
+
+
+-<s:sequence>
+
+<s:element name="FindNetPayableAmountResult" type="s:double" maxOccurs="1" minOccurs="1"/>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:element>
+
+</s:schema>
+
+</wsdl:types>
+
+
+-<wsdl:message name="FindNetPayableAmountSoapIn">
+
+<wsdl:part name="parameters" element="tns:FindNetPayableAmount"/>
+
+</wsdl:message>
+
+
+-<wsdl:message name="FindNetPayableAmountSoapOut">
+
+<wsdl:part name="parameters" element="tns:FindNetPayableAmountResponse"/>
+
+</wsdl:message>
+
+
+-<wsdl:portType name="WebService1Soap">
+
+
+-<wsdl:operation name="FindNetPayableAmount">
+
+<wsdl:input message="tns:FindNetPayableAmountSoapIn"/>
+
+<wsdl:output message="tns:FindNetPayableAmountSoapOut"/>
+
+</wsdl:operation>
+
+</wsdl:portType>
+
+
+-<wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+-<wsdl:operation name="FindNetPayableAmount">
+
+<soap:operation style="document" soapAction="http://tempuri.org/FindNetPayableAmount"/>
+
+
+-<wsdl:input>
+
+<soap:body use="literal"/>
+
+</wsdl:input>
+
+
+-<wsdl:output>
+
+<soap:body use="literal"/>
+
+</wsdl:output>
+
+</wsdl:operation>
+
+</wsdl:binding>
+
+
+-<wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+-<wsdl:operation name="FindNetPayableAmount">
+
+<soap12:operation style="document" soapAction="http://tempuri.org/FindNetPayableAmount"/>
+
+
+-<wsdl:input>
+
+<soap12:body use="literal"/>
+
+</wsdl:input>
+
+
+-<wsdl:output>
+
+<soap12:body use="literal"/>
+
+</wsdl:output>
+
+</wsdl:operation>
+
+</wsdl:binding>
+
+
+-<wsdl:service name="WebService1">
+
+
+-<wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+
+<soap:address location="http://localhost:59548/WebService1.asmx"/>
+
+</wsdl:port>
+
+
+-<wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+
+<soap12:address location="http://localhost:59548/WebService1.asmx"/>
+
+</wsdl:port>
+
+</wsdl:service>
+
+</wsdl:definitions>
